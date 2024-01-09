@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> filter(const vector<int> &arr , function<bool(int)> criteria) {
-    vector<int> answer;
+vector<int> filter(const vector<string> &arr , function<bool(string)> criteria) {
+    vector<string> answer;
     
     for(auto cont &element : arr){
         if(criteria(element)) {
