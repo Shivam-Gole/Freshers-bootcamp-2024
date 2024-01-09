@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> filter(const vector<string> &arr , function<bool(string)> criteria) {
+vector<string> filter(const vector<string> &arr , function<bool(string)> criteria) {
     vector<string> answer;
     
     for(auto const &element : arr){
@@ -9,7 +9,7 @@ vector<int> filter(const vector<string> &arr , function<bool(string)> criteria) 
         answer.push_back(element);
         }    
     }
-    return element;
+    return answer;
 }
 
 int main() {
