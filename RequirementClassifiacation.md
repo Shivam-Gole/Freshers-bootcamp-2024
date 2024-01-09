@@ -19,3 +19,4 @@ As a customer , I need to place an order so that I can have food delivered to my
 5.	Reliability :  It provides a reliable and robust user experiences.
 6.	Responsive web UI : Less complex UI so that the person who has very less knowledge or even not having any idea about the new features can easily use the application. 
 
+<img src = https://github.com/avibhai45/Freshers-bootcamp-2024/blob/main/UsecaseDiagram.png>
