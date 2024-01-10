@@ -13,6 +13,20 @@ class ConsoleDisplayController {
     }
 };
 
+class StartsWithStrategies {
+    private: 
+    char startsWith;
+    
+    public:
+    void setStartsWith(string key){
+        this->startsWith = key;
+    }
+    bool invoke(string item){
+        return item.find(this->startsWith) == 0;
+    }
+    
+};
+
 class StringListFilterController{
     public:
     StartsWithStrategies condition;
@@ -27,20 +41,6 @@ class StringListFilterController{
         }
         return result;
     }
-};
-
-class StartsWithStrategies {
-    private: 
-    char startsWith;
-    
-    public:
-    void setStartsWith(string key){
-        this->startsWith = key;
-    }
-    bool invoke(string item){
-        return item.find(this->startsWith) == 0;
-    }
-    
 };
 
 class Filter {
