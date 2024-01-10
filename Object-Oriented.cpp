@@ -1,6 +1,48 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+class ConsoleDisplayController {
+    private:
+    string content;
+    public:
+    void setContent(String word){
+        this->content = word;
+    }
+    void display(){
+        cout<<this->content;
+    }
+};
+
+class StringListFilterController{
+    public:
+    StartsWithStrategies condition;
+    vector<string>filter(vector<string>&arr){
+        vector<string>answer;
+        condition.setStartWith('A');
+        
+        for(auto : element:arr){
+            if(condition.invoke(element)){
+                answer.push_back(element);
+            }
+        }
+        return result;
+    }
+};
+
+class StartsWithStrategies {
+    private: 
+    char startsWith;
+    
+    public:
+    void setStartsWith(string key){
+        this->startsWith = key;
+    }
+    bool invoke(string item){
+        return item.find(this->startsWith) == 0;
+    }
+    
+};
+
 class Filter {
     public:
         vector<string> filterVectorOfStrings(const vector<string> &words, function<bool(string)> criteria) {
