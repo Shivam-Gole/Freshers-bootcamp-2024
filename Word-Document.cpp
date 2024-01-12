@@ -13,6 +13,31 @@ class DocumentPart{
     
 };
 
+class Iconvertor{
+    public:
+    virtual void Convert(Header header) = 0;        
+    virtual void Convert(Hyperlink hyperlink) = 0;
+    virtual void Convert(Paragraph para)  = 0;
+    virtual void Convert(Footer foot) = 0;
+};
+
+class HTMLConvertor : public IConvertor{
+ 
+    public:
+    void Convert(Header header) {
+        return ;
+    }
+    void Convert(Paragraph para) {
+        return ;
+    }
+    void Convert(Hyperlink hyperlink) {
+        return ;
+    }
+    void Convert(Footer footer) {
+        return ;
+    }
+};
+
 class WordDocument{
     private:
     vector<DocumentPart*> partList;
@@ -29,17 +54,24 @@ class WordDocument{
 class Header : public DocumentPart{
     public: 
     string title;
+    HtmlConvert htmlConvert;
+    string header;
     
     void paint(){
         
     }
     void save(){
         
+    }
+    void Convert(){
+        HtmlConvertor::covert(this);
+        return ;
     }
 };
 
 class Paragraph : public DocumentPart{
     public: 
+    HtmlConvert htmlConvert;
     string title;
     
     void paint(){
@@ -47,11 +79,16 @@ class Paragraph : public DocumentPart{
     }
     void save(){
         
+    }
+    void Convert(){
+        HtmlConvertor::covert(this);
+        return ;
     }
 };
 
-class Hypertext : public DocumentPart{
+class Hyperlink : public DocumentPart{
     public: 
+    HtmlConvert htmlConvert;
     string title;
     
     void paint(){
@@ -59,11 +96,16 @@ class Hypertext : public DocumentPart{
     }
     void save(){
         
+    }
+    void Convert(){
+        HtmlConvertor::covert(this);
+        return ;
     }
 };
 
 class Footer : public DocumentPart{
     public: 
+    HtmlConvert htmlConvert;
     string text;
     
     void paint(){
@@ -72,10 +114,15 @@ class Footer : public DocumentPart{
     void save(){
         
     }
+    void Convert(){
+        HtmlConvertor::covert(this);
+        return ;
+    }
 };
 
 int main() {
     
-
+    
+    
     return 0;
 }
