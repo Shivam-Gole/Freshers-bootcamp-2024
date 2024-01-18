@@ -19,9 +19,10 @@ namespace LanguageDay1
 
         public string Display()
         {
-            double taxPrice = Price + Price * Gst;
-            double discountPrice = taxPrice * (1 - Discount);
-            double totalPrice = discountPrice * Stock;
+            double taxPrice = Price + Price * Gst / 100;
+            Price = taxPrice;
+            double discountPrice = Discount / 100 * Price;
+            double totalPrice = Price - discountPrice;
 
             return $"ProdId: {ProductId}, " +
                 $"Name: {ProdName}, " +
