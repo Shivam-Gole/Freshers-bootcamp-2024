@@ -12,16 +12,16 @@ namespace LanguageDay1
         public string ProdName { get; set; }
         public DateTime MfgDate { get; set; }
         public int Warranty { get; set; }
-        public decimal Price { get; set; }
+        public float Price { get; set; }
         public int Stock { get; set; }
-        public decimal Gst { get; set; }
-        public decimal Discount { get; set; }
+        public float Gst { get; set; }
+        public float Discount { get; set; }
 
         public string Display()
         {
-            decimal taxPrice = Price + Price * Gst;
-            decimal discountPrice = taxPrice * (1 - Discount);
-            decimal totalPrice = discountPrice * Stock;
+            double taxPrice = Price + Price * Gst;
+            double discountPrice = taxPrice * (1 - Discount);
+            double totalPrice = discountPrice * Stock;
 
             return $"ProdId: {ProductId}, " +
                 $"Name: {ProdName}, " +
