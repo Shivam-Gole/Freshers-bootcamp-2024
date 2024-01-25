@@ -1,6 +1,6 @@
 using System;
 
-namespace TaskManager.cs
+namespace TaskManager
 {
     public interface IPrinter
     {
@@ -30,39 +30,51 @@ namespace TaskManager.cs
 
     public class PrintScanner : IPrinter, IScanner
     {
+        private IPrinter printer;
+        private IScanner scanner;
+
+        public PrintScanner()
+        {
+            printer = new Printer();
+            scanner = new Scanner();
+        }
+
         public void Print(string path)
         {
-            Console.WriteLine($"Printing .....{path}");
+            printer.Print(path);
         }
+
         public void Scan(string path)
         {
-            Console.WriteLine($"Scanning .....{path}");
+            scanner.Scan(path);
         }
     }
 
     public static class TaskManager
     {
-        public static void ExecuctePrintTask(IPrinter printer, string documentPath)
+        public static void ExecutePrintTask(IPrinter printer, string documentPath)
         {
             printer.Print(documentPath);
         }
 
-        public static void ExecucteScanTask(IScanner scanner, string documentPath)
+        public static void ExecuteScanTask(IScanner scanner, string documentPath)
         {
             scanner.Scan(documentPath);
         }
     }
 
-    public class Program{
-    static void Main(){
-        Printer printerObj=new Printer ();
-        Scanner scannerObj=new Scanner();
-        PrintScanner printScannerObj=new PrintScanner ();
+    public class Program
+    {
+        static void Main()
+        {
+            Printer printerObj = new Printer();
+            Scanner scannerObj = new Scanner();
+            PrintScanner printScannerObj = new PrintScanner();
 
-        TaskManager.ExecuctePrintTask(printerObj,"Test.doc");
-        TaskManager.ExecucteScanTask(scannerObj,"MyImage.png");
-        TaskManager.ExecuctePrintTask(printScannerObj,"NewDoc.doc");
-        TaskManager.ExecucteScanTask(printScannerObj,"YourImage.png");
+            TaskManager.ExecutePrintTask(printerObj, "Test.doc");
+            TaskManager.ExecuteScanTask(scannerObj, "MyImage.png");
+            TaskManager.ExecutePrintTask(printScannerObj, "NewDoc.doc");
+            TaskManager.ExecuteScanTask(printScannerObj, "YourImage.png");
+        }
     }
-}
 }
