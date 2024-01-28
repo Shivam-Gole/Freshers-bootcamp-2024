@@ -1,6 +1,6 @@
 using System;
 
-namespace TaskManager
+namespace TaskManager.cs
 {
     public interface IPrinter
     {
@@ -32,10 +32,8 @@ namespace TaskManager
     {
         private IPrinter printer;
         private IScanner scanner;
-
-        public PrintScanner()
-        {
-            printer = new Printer();
+        public PrintScanner() { 
+         printer = new Printer();
             scanner = new Scanner();
         }
 
@@ -43,7 +41,6 @@ namespace TaskManager
         {
             printer.Print(path);
         }
-
         public void Scan(string path)
         {
             scanner.Scan(path);
@@ -52,12 +49,12 @@ namespace TaskManager
 
     public static class TaskManager
     {
-        public static void ExecutePrintTask(IPrinter printer, string documentPath)
+        public static void ExecuctePrintTask(IPrinter printer, string documentPath)
         {
             printer.Print(documentPath);
         }
 
-        public static void ExecuteScanTask(IScanner scanner, string documentPath)
+        public static void ExecucteScanTask(IScanner scanner, string documentPath)
         {
             scanner.Scan(documentPath);
         }
@@ -71,10 +68,10 @@ namespace TaskManager
             Scanner scannerObj = new Scanner();
             PrintScanner printScannerObj = new PrintScanner();
 
-            TaskManager.ExecutePrintTask(printerObj, "Test.doc");
-            TaskManager.ExecuteScanTask(scannerObj, "MyImage.png");
-            TaskManager.ExecutePrintTask(printScannerObj, "NewDoc.doc");
-            TaskManager.ExecuteScanTask(printScannerObj, "YourImage.png");
+            TaskManager.ExecuctePrintTask(printerObj, "Test.doc");
+            TaskManager.ExecucteScanTask(scannerObj, "MyImage.png");
+            TaskManager.ExecuctePrintTask(printScannerObj, "NewDoc.doc");
+            TaskManager.ExecucteScanTask(printScannerObj, "YourImage.png");
         }
     }
 }
